@@ -1,10 +1,6 @@
 const sum = require('./add');
+const forEach = require('./abb')
 
-function forEach(items, callback) {
-  for (let index = 0; index < items.length; index++) {
-    callback(items[index]);
-  }
-}
 const mockCallback = jest.fn(x => 42 + x);
 
 test('2+2=4', () => {
