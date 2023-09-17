@@ -5,7 +5,7 @@ import { useState } from 'react';
 function App() {
   const [count, setCount] = useState(0)
   const add = () => {
-    setCount(() => count + 4)
+    setCount(() => count + 1)
   }
   const rest = () => {
     setCount(0)
