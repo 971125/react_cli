@@ -52,31 +52,26 @@ const items: MenuItem[] = [
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [count, setCount] = useState(0)
-  const add = () => {
-    setCount(() => count + 1)
-  }
-  const rest = () => {
-    setCount(0)
-  }
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
 
   return (
-    <div style={{ width: 256 }}>
-      <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
-        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </Button>
-      <Menu
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        theme="dark"
-        inlineCollapsed={collapsed}
-        items={items}
-      />
+    <div>
+      <div className='nav'>
+        <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
+          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+        </Button>
+        <Menu
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+          mode="inline"
+          theme="dark"
+          inlineCollapsed={collapsed}
+          items={items}
+        />
+      </div>
     </div>
   );
 };

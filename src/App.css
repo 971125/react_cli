@@ -1,17 +1,4 @@
-.App {
-  text-align: center;
+.nav {
+  /* width: 300px; */
+  /* background: #001529; */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  display: flex;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
