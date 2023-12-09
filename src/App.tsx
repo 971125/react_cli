@@ -52,11 +52,32 @@ const items: MenuItem[] = [
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [redNum, setRedNum] = useState<number[]>([])
+  const [blueNum, setBlueNum] = useState(0)
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
 
+  const test = () => {
+    let result: number[] = []
+    const id = setInterval(() => {
+      const num = Math.floor(Math.random() * 33 + 1)
+      console.log(num, '-------')
+      if (result.indexOf(num) < 0) {
+        result.push(num)
+      }
+      if (result.length === 6) {
+        result.sort((a, b) => a - b)
+        setRedNum(result)
+        setTimeout(() => {
+          const blueNum = Math.floor(Math.random() * 16 + 1)
+          setBlueNum(blueNum)
+        }, 1000);
+        clearInterval(id)
+      }
+    }, 1000)
+  }
   return (
     <div>
       <div className='nav'>
@@ -71,6 +92,16 @@ const App: React.FC = () => {
           inlineCollapsed={collapsed}
           items={items}
         />
+        <Button
+          onClick={test}
+        >
+          出号
+        </Button>
+        <div>
+          红球测试:{redNum.map((item, index) => <h2 style={{ color: 'red' }} key={index}>{item}</h2>)}
+          蓝球测试:
+          <h2 style={{ color: 'blue' }}>{blueNum}</h2>
+        </div>
       </div>
     </div>
   );
